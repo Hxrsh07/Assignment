@@ -1,0 +1,94 @@
+root {
+  --arrow-image-up: url("../images/arrow-down.svg");
+}
+@import "colors";
+@import "mixin";
+
+* {
+  box-sizing: border-box;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 1rem;
+  color: $gray;
+  margin: 0;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list-desktop > li {
+  padding-block: 30px;
+}
+
+.list-item {
+  display: inline-block;
+}
+
+.list-item:hover {
+  color: #000;
+}
+
+.list-item-mobile {
+  width: 100%;
+}
+.list-item-mobile h3 {
+  line-height: 2rem;
+}
+
+.list-item-mobile h3::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 24px;
+  background-image: var(--arrow-image-up, url("../images/arrow-down.svg"));
+}
+
+.list-item-inner {
+  width: 100%;
+  cursor: pointer;
+}
+
+a,
+.list-item {
+  cursor: pointer;
+}
+
+.link-red {
+  padding: 10px;
+  background-color: #ea4c89;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.line {
+  display: block;
+  height: 1px;
+  margin-block: 50px;
+  background-color: rgba($gray, 0.2);
+  border-radius: 8px;
+}
+
+@import "topNav";
+@import "searchSection";
+@import "main";
+@import "loading";
+@import "footer";
+
+.hidden {
+  display: none;
+}
+
+@media (min-width: 920px) {
+  .only-mobile {
+    display: none;
+  }
+}
+
+@media (width< 920px) {
+  .only-desktop {
+    display: none;
+  }
+}

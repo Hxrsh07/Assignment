@@ -1,0 +1,83 @@
+.main {
+  width: 100%;
+  padding: 50px;
+}
+
+.art-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  gap: 32px;
+
+  & li,
+  img,
+  section {
+    width: 100%;
+  }
+
+  & img {
+    aspect-ratio: 1;
+    border-radius: 16px;
+  }
+
+  & div {
+    display: inline;
+  }
+
+  & .art-information {
+    @include flex(center, space-between);
+  }
+}
+
+.img-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.img-container:hover {
+  cursor: pointer;
+  & .img-desc {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.artist {
+  display: inline;
+  max-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.like-svg,
+.view-svg {
+  width: 16px;
+  color: $LightGray;
+}
+
+.like-svg:hover {
+  cursor: pointer;
+  & path {
+    fill: $pink;
+  }
+}
+
+.img-desc {
+  width: 100%;
+  height: 50%;
+  padding: 32px 16px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  z-index: 10;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  color: $white;
+  font-weight: bold;
+  @include flex(flex-end, flex-start);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
